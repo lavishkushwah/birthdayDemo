@@ -1,0 +1,22 @@
+<%= link_to 'Back', root_path%>
+
+<h3>List of today's birthday</h3>
+
+<table>                         
+  <tr>                          
+    <th> First Name</th>
+    <th>Last Name</th>
+    <th> Email</th>
+    <th>Birthdate</th>
+    <th>Wish</th>
+  </tr>
+  <% @user_array.each do |data| %>      
+  <tr>
+    <td><%= data[:firstname] %></td>  
+    <td><%= data[:lastname] %></td>
+    <td><%= data[:email] %></td>  
+    <td><%= data[:dob].strftime("%d/%m/%Y") %></td>
+    <td><%= link_to 'Wish Birthday', main_wish_birthday_path(id:data[:id], current_user: current_user)%></td>  
+  </tr>
+  <% end %>
+</table>

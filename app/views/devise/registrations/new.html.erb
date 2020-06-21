@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div class="container">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3>Sign up</h3>
+      </div>
+      <div class="card-body">  
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="input-group form-group">
+            <%= f.email_field :email, :class=> "form-control", :placeholder=> "Email" %>
+          </div>
+
+          <div class="input-group form-group">
+            <%= f.password_field :password, :class=> "form-control", :placeholder=> "password" %>
+          </div>
+
+          <div class="input-group form-group">
+            <%= f.password_field :password_confirmation, :class=> "form-control", :placeholder=> "password Confirm" %>
+          </div>
+
+          <div class="input-group form-group">
+            <%= f.text_field :firstname, :class=> "form-control", :placeholder=> "Firstname"%>
+          </div>
+
+          <div class="input-group form-group"">
+            <%= f.text_field :lastname,:class=> "form-control", :placeholder=> "lastname"%>
+          </div>
+
+          <div class="input-group form-group">
+            <%= f.date_field :dob, :class=> 'form-control'%>
+          </div>
+
+          <div class="input-group form-group">
+            <%= f.text_field :address,:class=> "form-control", :placeholder=> "address"%>
+          </div>
+          <div class="actions">
+            <%= f.submit "Sign up" %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

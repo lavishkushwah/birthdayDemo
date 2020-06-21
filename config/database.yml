@@ -1,0 +1,14 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: birthdaywish
+  pool: 5
+  username: postgres
+  password: postgres
+  timeout: 5000
+
+# production:
+#  <<: *default
+#  database: fmini_production
+#  username: fmini
+#  password: <%= ENV['FMINI_DATABASE_PASSWORD'] %>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <div>
+    <%if current_user%>
+      <%= button_tag "View Today's birthday",:onclick => "location.href = 'main/today_birthday'", class: 'btn btn-default' %>
+    <%end%> 
+    <%if !current_user%>
+      <p>please sign-in for wishing birthday</p>
+    <%end%> 
+  </div>
+
+  <title></title>
+</head>
+<body>
+<h3>All User Birthday </h3>
+<table>                         
+  <tr>                          
+    <th> First Name</th>
+    <th>Last Name</th>
+    <th> Email</th>
+    <th>Birthdate</th>
+
+  </tr>
+  <% @users.each do |data| %>      
+    <tr>
+      <td><%= data.firstname %></td>  
+      <td><%= data.lastname %></td>
+      <td><%= data.email %></td>
+      <% if data.dob.present?%>  
+      <td><%= data.dob.strftime("%d/%m/%Y") %></td>
+      <%end%>
+    </tr>
+  <% end %>
+</table>       
+</body>
+</html>
