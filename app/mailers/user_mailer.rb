@@ -5,9 +5,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.birthday_wish.subject
   #
-  def birthday_wish(user)
+  def birthday_wish(user, current_user)
   	@user = user
-    @greeting = "Hi"
+    @current_user = User.where(id:current_user).first
 
     mail to: @user.email, subject: "Birthday Wish"
   end

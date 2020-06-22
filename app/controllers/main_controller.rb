@@ -23,7 +23,7 @@ class MainController < ApplicationController
   end
   def wish_birthday
     @user = User.find(params[:id])
-  	UserMailer.birthday_wish(@user).deliver_now
+  	UserMailer.birthday_wish(@user, current_user).deliver_now
     redirect_to main_today_birthday_url, :notice => "Birthday Mail Sent!"
   end
 end
